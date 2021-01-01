@@ -21,7 +21,7 @@ The time complexity to delete a node, search for a node, display information of 
 
 Execution demo:</br>
 
-data used for execution:</br>
+Data used for execution:</br>
 
 output:</br>
 
