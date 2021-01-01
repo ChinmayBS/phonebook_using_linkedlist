@@ -1,7 +1,7 @@
                                                       Phonebook using doubly linnked list
                                                                      
 
-This is a mini project written in c programming language.\n
+This is a mini project written in c programming language.</br>
 Data structure used is doubly linked list.
 
 This is a menu driven program which contains mainly 5 functions:
