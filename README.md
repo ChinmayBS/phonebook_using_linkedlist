@@ -23,7 +23,7 @@ Execution demo:</br>
 
 Data used for execution:</br>
 <p align="center">
-  <img src="/images/table.png" width="350" title="hover text">
+  <img src="/images/table.png" >
 </p>
 
 output:</br>
