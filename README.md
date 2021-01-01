@@ -27,6 +27,11 @@ Data used for execution:</br>
 </p>
 
 output:</br>
+<p align="left">
+  <img src="/images/r1.png" >
+  <img src="/images/r2.png" >
+  <img src="/images/r3.png" >
+</p>
 
 
 
