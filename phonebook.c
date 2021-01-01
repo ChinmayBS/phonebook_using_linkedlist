@@ -185,8 +185,8 @@ NODE delete_node(NODE start,char name[])
         temp=cur;
         (temp->left)->right=temp->right;
         printf(" Contact with name %s is deleted\n",name);
-        printf("%s\'s number: %s",name,temp->number);
-        printf("%s\'s email: %s",name,temp->email);
+        printf("%s\'s number: %s\n",name,temp->number);
+        printf("%s\'s email: %s\n",name,temp->email);
         free(temp);
         return start;
       }
