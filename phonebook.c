@@ -31,6 +31,31 @@ NODE create_node(char name[],char number[],char email[])
 
 }
 
+
+NODE sorted_insert(NODE start,NODE cur,NODE new)
+{
+  NODE temp;
+  if(cur==start)
+  {
+
+    cur->left=new;
+    new->right=cur;
+    return new;
+  }
+  else
+  {
+    temp=cur->left;
+    new->right=cur;
+    new->left=temp;
+    temp->right=new;
+    cur->left=new;
+
+    return start;
+  }
+
+}
+
+
 NODE insert_node(NODE start,char name[],char number[],char email[])
 {
 
@@ -57,6 +82,11 @@ NODE insert_node(NODE start,char name[],char number[],char email[])
       else
         printf(" contact with given name already present \n");
 
+        return start;
+      }
+      else if (strcmp(name,cur->name)<0)
+      {
+        start=sorted_insert(start,cur,new);
         return start;
       }
 
@@ -88,9 +118,9 @@ void search_node(NODE start,char unique[])
     {
       if(strcmp(cur->name,unique)==0)
       {
-        printf("\n Contact with %s is present",cur->name);
+        printf(" Contact with %s is present",cur->name);
         printf("\n Mobile number: %s",cur->number);
-        printf("\n email id: %s",cur->email);
+        printf("\n email id: %s\n",cur->email);
         return;
       }
       cur=cur->right;
@@ -117,6 +147,7 @@ void display_contacts(NODE start)
      printf(" Name: %s\n",cur->name);
      printf(" Mobile number: %s\n",cur->number);
      printf(" Email id: %s\n",cur->email);
+     printf("\n");
      cur=cur->right;
    }
 
@@ -134,9 +165,12 @@ NODE delete_node(NODE start,char name[])
   else if (strcmp(start->name,name)==0)
   {
       cur=start;
+
+      printf(" Contact with name %s is deleted\n",name);
+      printf(" %s\'s number: %s\n",name,start->number);
+      printf(" %s\'s email: %s\n",name,start->email);
       start=start->right;
       free(cur);
-      printf(" Contact with name %s is deleted\n",name);
       return start;
   }
 
@@ -150,8 +184,10 @@ NODE delete_node(NODE start,char name[])
       {
         temp=cur;
         (temp->left)->right=temp->right;
-        free(temp);
         printf(" Contact with name %s is deleted\n",name);
+        printf("%s\'s number: %s",name,temp->number);
+        printf("%s\'s email: %s",name,temp->email);
+        free(temp);
         return start;
       }
       cur=cur->right;
@@ -194,13 +230,14 @@ int main()
     printf(" 1.Add new contact\n 2.Search for a contact\n 3.Display contact from phonebook\n");
     printf(" 4.Delete contact\n 5.Total contacts \n 6.End ");
     scanf("%d",&choice);
+    getchar();
     switch (choice)
     {
       case 1:
       {
         printf(" Enter conatct deatails:\n");
         printf(" 1.name: ");
-        scanf("%s",name);
+        scanf("%[^\n]s",name);
         printf(" 2.number: ");
         scanf("%s",number);
         printf(" 3.email: ");
@@ -212,7 +249,7 @@ int main()
       case 2:
       {
         printf("\n Enter contact's name: ");
-        scanf("%s",unique);
+        scanf("%[^\n]s",unique);
         search_node(start,unique);
       }
       break;
@@ -227,7 +264,7 @@ int main()
       case 4:
       {
         printf("\n Enter contact's name: ");
-        scanf("%s",unique);
+        scanf("%[^\n]s",unique);
         start=delete_node(start,unique);
       }
       break;
