@@ -22,8 +22,12 @@ The time complexity to delete a node, search for a node, display information of 
 Execution demo:</br>
 
 Data used for execution:</br>
+<p align="center">
+  <img src="/images/table.png" width="350" title="hover text">
+</p>
 
 output:</br>
+
 
 
 
