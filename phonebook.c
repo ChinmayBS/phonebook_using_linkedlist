@@ -223,6 +223,26 @@ int main()
   int choice;
   NODE start=NULL;
   char name[20],number[15],email[25],unique[30];
+   FILE* fp;
+        fp=fopen("phone.txt","rb+");
+        if(fp==NULL)
+    {
+        fp=fopen("phone.txt","wb+");
+        if(fp==NULL)
+        {
+            printf("cannot open file");
+            exit(1);
+        }
+    }
+    struct node e;
+    int size=sizeof(e);
+    rewind(fp);
+		while(fread(&e,size,1,fp)==1)
+        {
+            start=insert_node(start,e.name,e.number,e.email);
+        }
+        fclose(fp);
+
   while(1)
   {
     printf("           ------Welcome to phonebook------ \n");
@@ -275,7 +295,17 @@ int main()
       }
       break;
 
-      case 6:exit(0);
+      case 6:fp=fopen("phone.txt","wb+");
+             NODE cur=start;
+             while(cur!=NULL)
+             {   strcpy(e.name,cur->name);
+                 strcpy(e.email,cur->email);
+                 strcpy(e.number,cur->number);
+                 fwrite(&e,size,1,fp);
+                 cur=cur->right;
+             }
+             fclose(fp);
+             exit(0);
 
       default:printf(" Wrong Choice\n");
     }
