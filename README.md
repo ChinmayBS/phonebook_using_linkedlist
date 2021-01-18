@@ -1,4 +1,4 @@
-                                                     * * Phonebook using doubly linnked list * *
+                                                     <h2>Phonebook using doubly linnked list</h2>
                                                                      
 
 This is a mini project written in c programming language.</br>
