@@ -1,5 +1,5 @@
-                                                     <h2> Phonebook using doubly linnked list </h2>
-                                                                     
+## <center>Phonebook using doubly linnked list </center>##
+
 
 This is a mini project written in c programming language.</br>
 Data structure used is doubly linked list.</br>
@@ -18,6 +18,7 @@ Each node stores information of a person in phonebook.</br>
 This program inserts new node to linked list in ascending order so the time complexity is O(n*n) to insert n nodes.,/br>
 The time complexity to delete a node, search for a node, display information of all nodes and display total number of nodes is O(n).</br>
 
+Information is stored in binary file once program terminates. 
 
 Execution demo:</br>
 
@@ -33,9 +34,3 @@ output:</br>
   <img src="/images/r3.png" >
   <img src="/images/r4.png" >
 </p>
-
-
-
-
-
-
